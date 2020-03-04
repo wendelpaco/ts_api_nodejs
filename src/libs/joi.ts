@@ -1,8 +1,8 @@
 import Joi from '@hapi/joi'
-import { User } from '../interface/User/IUser'
+import { UserInterface } from '../interface/User/IUser'
 
 
-export const signupValidation = (data: User): Joi.ValidationResult => {
+export const signupValidation = (data: UserInterface): Joi.ValidationResult => {
     const userSchema = Joi.object({
         username: Joi
             .string()
@@ -20,7 +20,7 @@ export const signupValidation = (data: User): Joi.ValidationResult => {
     return userSchema.validate(data)
 }
 
-export const signinValidation = (data: User): Joi.ValidationResult => {
+export const signinValidation = (data: UserInterface): Joi.ValidationResult => {
     const userSchema = Joi.object({
         email: Joi
             .string()
