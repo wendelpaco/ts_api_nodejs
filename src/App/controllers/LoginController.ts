@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken'
 import config from '../../config/env.json'
 import { UserInterface } from '../../interface/User/IUser'
 import { signupValidation, signinValidation } from '../../libs/joi'
+import { userInfo } from 'os'
 
 class LoginController {
 

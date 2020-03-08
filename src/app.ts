@@ -2,7 +2,8 @@ import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 import { ConnectionBD } from './database/index'
-import AuthController from './App/routes/Auth'
+import AuthRouter from './App/routes/Auth'
+import AdmistratorRouter from './App/routes/Admistrator/index'
 import config from './config/env.json'
 
 class App {
@@ -25,7 +26,8 @@ class App {
         ConnectionBD
     }
     private routes(): void {
-        this.express.use('/api/auth', AuthController)
+        this.express.use('/api/auth', AuthRouter)
+        this.express.use('/api', AdmistratorRouter)
     }
 
 }
