@@ -1,5 +1,5 @@
 import Joi from '@hapi/joi'
-import { UserInterface } from '../interface/User/IUser'
+import { UserInterface } from '../../../interface/User/IUser'
 
 
 export const signupValidation = (data: UserInterface): Joi.ValidationResult => {

@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose'
-import bcryptjs from 'bcryptjs'
+import bcrypt from 'bcryptjs'
 
 import { UserInterface  } from '../../../interface/User/IUser'
 
@@ -19,17 +19,16 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true,
-        // select: false
     }
 }, { timestamps: true })
 
 userSchema.methods.encrypPassword = async (password: string): Promise<string> => {
-    const salt = await bcryptjs.genSalt(10)
-    return await bcryptjs.hash(password, salt)
+    const salt = await bcrypt.genSalt(10)
+    return await bcrypt.hash(password, salt)
 }
 
 userSchema.methods.validatePassword = async function (password: string): Promise<boolean> {
-    return await bcryptjs.compare(password, this.password)
-}
+    return await bcrypt.compare(password, this.password);
+};
 
-export default model<UserInterface>('User', userSchema)
+export default model<UserInterface>('User', userSchema);

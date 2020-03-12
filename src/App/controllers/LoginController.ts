@@ -1,11 +1,10 @@
 import { Request, Response } from 'express'
 
-import User from '../models/User/User'
+import User from '../models/User/UserModel'
 import jwt from 'jsonwebtoken'
 import config from '../../config/env.json'
 import { UserInterface } from '../../interface/User/IUser'
-import { signupValidation, signinValidation } from '../../libs/joi'
-import { userInfo } from 'os'
+import { signupValidation, signinValidation } from '../../libs/validation/User/UserValidation'
 
 class LoginController {
 
@@ -51,12 +50,13 @@ class LoginController {
 
     const user = await User.findOne({ email: req.body.email })
     if (!user) return res.status(400).json('Email or Password is wrong')
+
     const correctPassword = await user.validatePassword(req.body.password)
 
     if (!correctPassword) return res.status(400).json('Invalid Password')
 
     // Create a Token
-    const token: string = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET || 'wendel')
+    const token: string = jwt.sign({ _id: user._id }, config.Token.ApiKey || 'wendel')
     return res.header('authorization', token).json(token)
   }
 }

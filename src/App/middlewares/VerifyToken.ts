@@ -10,7 +10,7 @@ export interface Payload {
 
 export const TokenValidation = (req: Request, res: Response, next: NextFunction): void => {
   try {
-    const token = req.headers.authorization || ''
+    const token = req.headers['authorization'] || ''
 
     if (!token) res.status(401).send({ message: 'nenhum token foi fornecido' })
 
@@ -27,6 +27,6 @@ export const TokenValidation = (req: Request, res: Response, next: NextFunction)
     return next()
 
   } catch (e) {
-     res.status(400).send({ message: e.message })
+     res.status(400).json({ message: e.message })
   }
 }

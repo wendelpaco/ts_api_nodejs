@@ -1,7 +1,6 @@
 import { Request, Response } from 'express'
 import { UserInterface } from '../../../interface/User/IUser'
-import User from '../../models/User/User'
-
+import User from '../../models/User/UserModel'
 
 class AdministratorController {
 
@@ -10,17 +9,13 @@ class AdministratorController {
 
         try {
 
-            const userLogged: UserInterface = new User({
-
-            })
-
-
+            const userLogged = await User.findById(id) as UserInterface
+            if (!userLogged) return res.status(400).json({message: 'Não encontrado!'})
             return res.send(userLogged)
+            
         } catch (e) {
             return res.status(400).json(e)
         }
-
-
     }
 }
 
