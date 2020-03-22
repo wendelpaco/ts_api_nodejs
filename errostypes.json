@@ -1,0 +1,17 @@
+{
+    "Types": {
+        "codigo": {
+            "100" : "Nenhum registro encontrado no sistema",
+            "101" : "Validações internar: Tamanho de caracteres, campos obrigatorios..",
+            "102" : "Email / Cpf não validado",
+            "103" : "Objeto cadastrado com sucesso",
+            "104" : "Email/senha incorretos",
+            "105" : "Senha invalida",
+            "106" : "Exceptions",
+            "107" : "Objeto excluido com sucesso",
+            "108" : "Email / CPF em uso (duplicado)",
+            "109" : "Mensagem com informação do token",
+            "110" : "Caso o body venha vazio"
+        }
+    }
+}

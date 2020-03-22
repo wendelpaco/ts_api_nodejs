@@ -1,0 +1,19 @@
+{
+    "MongoDB": {
+        "UrlConnection": ""
+    },
+    "Token": {
+        "ApiKey": ""
+    },
+    "Server": {
+        "Port":
+    },
+    "Mailer": {
+        "host": "",
+        "port": 0,
+        "auth": {
+            "user": "",
+            "pass": ""
+        }
+    }
+}

@@ -2,7 +2,7 @@ import Joi from '@hapi/joi'
 import { UserInterface } from '../../../interface/User/IUser'
 
 
-export const signupValidation = (data: UserInterface): Joi.ValidationResult => {
+export const CreateUserValidation = (data: UserInterface): Joi.ValidationResult => {
     const userSchema = Joi.object({
         username: Joi
             .string()
@@ -20,7 +20,7 @@ export const signupValidation = (data: UserInterface): Joi.ValidationResult => {
     return userSchema.validate(data)
 }
 
-export const signinValidation = (data: UserInterface): Joi.ValidationResult => {
+export const LoginValidation = (data: UserInterface): Joi.ValidationResult => {
     const userSchema = Joi.object({
         email: Joi
             .string()

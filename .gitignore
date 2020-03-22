@@ -12,3 +12,5 @@ yarn.lock
 exemplo-github.txt
 
 build
+
+env.json

@@ -27,6 +27,6 @@ export const TokenValidation = (req: Request, res: Response, next: NextFunction)
     return next()
 
   } catch (e) {
-     res.status(400).json({ message: e.message })
+     res.status(400).json({ message: 'Token Expirado' })
   }
 }
